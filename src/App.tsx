@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useRef} from 'react';
+import GenericForwardedRefComponent from "./GenericForwardRefComponent";
+import ProductRow from "./ProductRow";
+import {Product} from "./Interfaces";
 
 function App() {
-  return (
+    const divRef = useRef<HTMLDivElement>(null);
+
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GenericForwardedRefComponent<Product>
+          reference={divRef}
+          dragOverlay={false}
+          renderItem={ProductRow}
+          value={
+              {
+                  id: 'a',
+                  name: 'Foo'
+              }
+          }
+      />
     </div>
   );
 }
