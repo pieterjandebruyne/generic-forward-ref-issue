@@ -5,7 +5,7 @@ import React, {
 } from "react";
 import {
     Draggable,
-    GenericForwardedRefComponentProps
+    GenericForwardedRefComponentProps,
 } from "./Interfaces";
 
 

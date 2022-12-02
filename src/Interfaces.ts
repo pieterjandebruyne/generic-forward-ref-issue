@@ -13,9 +13,8 @@ export interface Product extends Draggable {
     name: string
 }
 
-// to render the row we need the product values and the forwarded reference
-export interface ComponentToRenderProps {
-    value: Product,
+export interface ProductCategory extends Draggable {
+    test: string
 }
 
 export interface GenericComponentToRenderProps<T extends Draggable> {
@@ -35,7 +34,7 @@ export type RenderFunctionType<T extends Draggable> = (
     arguments_: GenericComponentToRenderProps<T> & ComponentToRenderPropsWithReference<T>
 ) => ReactElement<any, any> | null
 
-export interface GenericForwardedRefComponentProps<T extends Draggable> extends ComponentToRenderProps{
+export interface GenericForwardedRefComponentProps<T extends Draggable> extends GenericComponentToRenderProps<T>{
     renderItem: RenderFunctionType<T>
     dragOverlay: boolean
 }
